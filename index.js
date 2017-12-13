@@ -1,11 +1,11 @@
 const csv = require('csvtojson')
 
 // Require algorithm implementation
-const sort = require('./algorithms/native')
+const sort = require('./algorithms/insertion')
 
 // Path to data file and column to sort on
 const CSV_FILE='./datasets/ted_main.csv'
-const COLUMN = 'comments'
+const COLUMN = 'views'
 
 // Create an Array of Objects from the CSV file
 // using the column names for the keys and the row values for the values:
