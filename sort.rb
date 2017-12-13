@@ -2,9 +2,14 @@ require 'csv'
 require 'benchmark'
 
 CSV_FILE = File.expand_path('../datasets/ted_main.csv', __FILE__ )
-COLUMN = 'comments'
+COLUMN = 'views'
 
 data = CSV.read(CSV_FILE, headers: true)
+
+# sort.rb:10:in `[]': no implicit conversion of String into Integer (TypeError)
+def ruby_sort(array, column)
+  array.sort_by { |i| array[i][column].to_i <=> array[i+1][column].to_i }
+end
 
 def bubble_sort(array, column)
   n = array.length
@@ -40,8 +45,10 @@ end
 
 # For 'views' 19.840000   0.020000  19.860000 ( 19.878966)
 # For 'comments' 9.540000   0.010000   9.550000 (  9.562376)
-puts Benchmark.measure { bubble_sort(data, COLUMN) }
+# puts Benchmark.measure { bubble_sort(data, COLUMN) }
 
 # For 'views' 4.630000   0.010000   4.640000 (  4.638429)
 # From 'comments' 3.600000   0.010000   3.610000 (  3.616539)
-puts Benchmark.measure { insertion_sort(data, COLUMN) }
+# puts Benchmark.measure { insertion_sort(data, COLUMN) }
+
+puts Benchmark.measure { ruby_sort(data, COLUMN) }
