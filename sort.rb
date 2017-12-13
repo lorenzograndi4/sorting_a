@@ -1,6 +1,7 @@
 require 'csv'
 require 'benchmark'
 require File.expand_path('../algorithms/merge', __FILE__)
+require File.expand_path('../algorithms/quick', __FILE__)
 
 CSV_FILE = File.expand_path('../datasets/ted_main.csv', __FILE__ )
 COLUMN = 'comments'
@@ -71,7 +72,8 @@ end.to_a
 # For 'comments': 0.010000   0.000000   0.010000 (  0.012994)
 # puts Benchmark.measure { mergesort(array_of_hashes, COLUMN) }
 
-
+b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].shuffle
+print quicksort(b)
 
 
 
