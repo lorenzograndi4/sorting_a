@@ -73,8 +73,18 @@ end.to_a
 # puts Benchmark.measure { mergesort(array_of_hashes, COLUMN) }
 
 b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].shuffle
-print quicksort(b)
+# print quicksort(array_of_hashes, COLUMN)
 
+puts quicksort array_of_hashes, COLUMN
+# puts Benchmark.measure { quicksort array_of_hashes }
+#
+# array.each_index do |i|
+#   if array[i]['views'].to_i > array[i+1]['views'].to_i
+#     puts true
+#   else
+#     puts false
+#   end
+# end
 
 
 
